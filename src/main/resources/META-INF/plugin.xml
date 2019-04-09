@@ -1,0 +1,45 @@
+<idea-plugin>
+  <id>com.jitterted.fontsizer</id>
+  <name>Font Sizer</name>
+
+  <vendor email="support@example.com" url="http://www.example.com">The Font Sizers</vendor>
+
+  <description><![CDATA[Size your fonts the really easy way for Pairing and Mobbing.]]></description>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <application-components>
+    <component>
+      <implementation-class>
+        com.jitterted.FontSizerComponent
+      </implementation-class>
+    </component>
+  </application-components>
+
+  <actions>
+    <group id="FontSizer.FontSize" text="Font Sizer" description="Change Font Sizes">
+
+      <action id="FontSizer.IncreaseFontSize"
+              class="com.jitterted.IncreaseFontAction"
+              text="Increase Font Size"
+              description="Increase Font Size"
+              icon="/general/add.svg">
+        <add-to-group group-id="MainToolBar" anchor="last"/>
+      </action>
+
+      <action id="FontSizer.DecreaseFontSize"
+              class="com.jitterted.DecreaseFontAction"
+              text="Decrease Font Size"
+              description="Decrease Font Size"
+              icon="/general/remove.svg">
+        <add-to-group group-id="MainToolBar" relative-to-action="FontSizer.IncreaseFontSize" anchor="after"/>
+      </action>
+    </group>
+  </actions>
+</idea-plugin>
